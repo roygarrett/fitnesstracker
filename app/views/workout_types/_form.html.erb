@@ -1,0 +1,9 @@
+
+<%= simple_form_for workout_type do |f| %>
+    <%= f.input :name %>
+    <% if workout_type.new_record? %>
+      <%= f.submit "Create Workout Routine", :class => "btn btn-primary" %>
+    <% else %>
+      <%= f.submit "Update Workout Routine", :class => "btn btn-primary" %>
+    <% end %>
+  <% end %>

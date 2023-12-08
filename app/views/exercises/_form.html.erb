@@ -1,0 +1,5 @@
+<%= simple_form_for([@workout_type, @exercise]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :reps_sets, label: "Sets/Reps" %>
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>

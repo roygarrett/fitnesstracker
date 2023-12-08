@@ -1,0 +1,12 @@
+<h1 class="mt-3">Analytics</h1>
+<div class="mt-3">
+  <div class="card">  
+    <h2>Caloric Intake Trend</h2>
+    <%= line_chart @meal_data, color: "#0000ff" %>
+  </div>
+  <div class="card">
+    <h2>Active Time Trend</h2>
+    <%= line_chart @workout_data, color: "#0000ff" %>
+  </div>
+</div>
+<!-- Gonna miss you Prof Stroup! --!>

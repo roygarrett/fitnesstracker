@@ -1,0 +1,7 @@
+
+<%= simple_form_for workout do |f| %>
+  <%= f.input :date %>
+  <%= f.association :workout_type, label_method: :name, label: "Workout Routine" %>
+  <%= f.input :minutes %>
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>

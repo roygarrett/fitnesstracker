@@ -1,0 +1,17 @@
+<div id="<%= dom_id workout %>">
+  <p>
+    <strong>Date:</strong>
+    <%= workout.date %>
+  </p>
+
+  <p>
+    <strong>Workout:</strong>
+    <%= link_to workout.workout_type.name, workout_type_path(workout.workout_type) %>
+  </p>
+
+  <p>
+    <strong>Minutes:</strong>
+    <%= workout.minutes %>
+  </p>
+
+</div>
