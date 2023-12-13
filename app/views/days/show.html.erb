@@ -29,7 +29,7 @@
     <tbody>
       <% Workout.where(:date => @day).each do |w| %>
         <tr>
-          <td><%= link_to w.workout_type.name, workout_type_path(w.workout_type) %></td>
+          <td><%= link_to w.workout_type.name, workout_path(w) %></td>
           <td><%= w.minutes %></td>
         </tr>
       <% end %>
