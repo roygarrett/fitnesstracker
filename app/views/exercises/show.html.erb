@@ -1,4 +1,12 @@
 <p style="color: green"><%= notice %></p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Routines", workout_types_path %></li>
+    <li class="breadcrumb-item"><%= link_to @workout_type.name, workout_type_path(@workout_type) %></li>
+    <li class="breadcrumb-item"><%= link_to "#{@workout_type.name} Exercises", workout_type_exercises_path(@workout_type) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @exercise.name %></li>
+  </ol>
+</nav>
 
 <div class="card">
   <%= render @exercise %>
