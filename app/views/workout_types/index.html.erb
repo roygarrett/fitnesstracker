@@ -1,16 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Workout Routines</h1>
+<div><%= link_to "New Routine", new_workout_type_path, class: "btn btn-primary" %></div>
 
 <div id="workout_types">
   <% @workout_types.each do |workout_type| %>
     <div class="card">
       <%= render workout_type %>
       <p>
-      <%= link_to "Show this routine", workout_type %>
+      <%= link_to "Show Routine", workout_type, class: "btn btn-primary" %>
       </p>
     </div>
   <% end %>
 </div>
-
-<%= link_to "New routine", new_workout_type_path %>

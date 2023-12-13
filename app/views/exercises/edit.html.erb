@@ -1,10 +1,10 @@
-<h1>Editing Exercise</h1>
+<div class="mt-3">
+  <h1>Editing Exercise</h1>
 
-<%= render "form", exercise: @exercise %>
-
-<br>
-
-<div>
-  <%= link_to "Show this exercise", workout_type_exercise_path(@workout_type, @exercise) %> |
-  <%= link_to "Back to exercises", workout_type_exercises_path(@workout_type) %>
+  <%= render "form", exercise: @exercise %>
+  <br>
+  <div>
+    <%= link_to "Show Exercise", workout_type_exercise_path(@workout_type, @exercise) %> |
+    <%= link_to "Back", workout_type_exercises_path(@workout_type) %>
+  </div>
 </div>

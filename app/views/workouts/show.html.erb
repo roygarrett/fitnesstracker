@@ -1,10 +1,20 @@
 <p style="color: green"><%= notice %></p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Workouts", workouts_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= "#{@workout.workout_type.name} #{@workout.date.month}-#{@workout.date.day}" %></li>
+  </ol>
+</nav>
 
-<%= render @workout %>
+<div class="card">
+  <%= render @workout %>
+</div>
 
 <div>
-  <%= link_to "Edit this workout", edit_workout_path(@workout) %> |
-  <%= link_to "Back to workouts", workouts_path %>
-
-  <%= button_to "Destroy this workout", @workout, method: :delete %>
+  <%= link_to "Edit", edit_workout_path(@workout) %> |
+  <%= link_to "Back", workouts_path %>
+</div>
+<br>
+<div>
+  <%= button_to "Delete", @workout, method: :delete, class: "btn btn-danger" %>
 </div>

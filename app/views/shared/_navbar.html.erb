@@ -20,6 +20,17 @@
             <a class="nav-link" href="/analytics/index">Analytics</a>
           </li>
         </ul>
+        
+        <div class="wrapper">
+          <div class="toggle">
+          <input class="toggle-input" type="checkbox" />
+            <div class="toggle-bg"></div>
+            <div class="toggle-switch">
+              <div class="toggle-switch-figure"></div>
+              <div class="toggle-switch-figureAlt"></div>
+            </div>  
+          </div>
+        </div>
 
         <%= button_to("Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-outline-secondary") %>
 

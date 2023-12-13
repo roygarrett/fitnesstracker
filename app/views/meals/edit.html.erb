@@ -1,10 +1,10 @@
-<h1>Editing Meal</h1>
+<div class="mt-3">
+  <h1>Editing Meal</h1>
 
-<%= render "form", meal: @meal %>
-
-<br>
-
-<div>
-  <%= link_to "Show this meal", @meal %> |
-  <%= link_to "Back to meals", meals_path %>
+  <%= render "form", meal: @meal %>
+  <br>
+  <div>
+    <%= link_to "Show Meal", @meal %> |
+    <%= link_to "Back", meals_path %>
+  </div>
 </div>

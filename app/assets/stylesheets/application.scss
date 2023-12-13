@@ -1,0 +1,205 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.card {
+  padding: 1rem 2rem;
+  margin: 2rem 0rem;
+}
+
+fieldset legend { 
+  float: none;
+}
+
+#navbarNav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#authentication {
+  max-width: 20rem;
+  margin: 2rem auto;
+}
+
+/*
+F5EB42 - sun inner
+E4C74D - sun outer
+FFFFFF - cloud inner
+D4D4D2 - cloud outer
+81C0D5 - parent outer
+C0E6F6 - parent inner
+FFFDF2 - moon inner
+DEE1C5 - moon outer
+FCFCFC - stars
+*/
+
+body {
+  background-color: #F3F3F3;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+
+/* Mixins */
+@mixin crater($top, $left, $size) {
+  content: '';
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: $size;
+  height: $size;
+  background-color: #EFEEDA;
+  border-radius: 100%;
+  border: 4px solid #DEE1C5;
+}
+
+@mixin cloudBubble($top, $right, $width, $height, $deg) {
+  content: '';
+  display: block;
+  position: relative;
+  top: $top;
+  right: $right;
+  width: $width;
+  height: $height;
+  border: 8px solid #D4D4D2;
+  border-radius: 100%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotateZ($deg);
+  background-color: #fff;
+}
+
+
+/* Day State */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  margin-left: 100px;
+  padding: 4px;  
+  border-radius: 40px;
+}
+
+.toggle:before,
+.toggle:after {
+  content: '';
+  display: table;
+}
+
+.toggle:after {
+  clear: both;
+}
+
+.toggle-bg {
+  position: absolute;
+  top: -.75px;
+  left: -4px;
+  width: 105%;  
+  height: 105%;
+  background-color: #C0E6F6;
+  border-radius: 40px;
+  border: 4px solid #81C0D5;
+  transition: all .1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.toggle-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  
+  height: 100%;
+  border: 1px solid red;
+  border-radius: 40px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+  background-color: #F5EB42;
+  border: 4px solid #E4C74D;
+  border-radius: 50%;
+  transition: all .1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.toggle-switch-figure {  
+  position: absolute;
+  bottom: -14px;
+  left: -50px;
+  display: block;
+  width: 80px;
+  height: 30px;
+  border: 8px solid #D4D4D2;
+  border-radius: 20px;  
+  background-color: #fff;
+  transform: scale(0.4);
+  transition: all .12s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  &:after {
+    @include cloudBubble(-45px, -38px, 15px, 15px, 70deg);
+  }
+  &:before {
+    @include cloudBubble(-25px, -10px, 30px, 30px, 30deg);
+  }
+}
+
+.toggle-switch-figureAlt {
+  @include crater(5px, 2px, 2px);
+  
+  box-shadow: 
+    40px -3px 0 -3px #FCFCFC,
+    68px -4px 0 -3px #FCFCFC,
+    60px 4px 0 -4px #FCFCFC,
+    73px 18px 0 -2px #FCFCFC,
+    63px 18px 0 -4px #FCFCFC,
+    44px 15px 0 -2px #FCFCFC,
+    58px 4px 0 -3px #FCFCFC;
+  
+  transition: all .12s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  transform: scale(0);
+}
+
+.toggle-switch-figureAlt:before {
+  @include crater(-7px, 12px, 12px);
+}
+
+.toggle-switch-figureAlt:after {
+  @include crater(10px, 8px, 15px);
+}
+
+/* Night State */
+.toggle-input:checked ~ .toggle-switch {
+  margin-left: 0;
+  border-color: #DEE1C5;
+  background-color: #FFFDF2;
+}
+
+.toggle-input:checked ~ .toggle-bg {
+  background-color: #484848;
+  border-color: #202020;
+}
+
+.toggle-input:checked ~ .toggle-switch .toggle-switch-figure {
+  margin-left: 40px;
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.toggle-input:checked ~ .toggle-switch .toggle-switch-figureAlt {
+  transform: scale(1);
+}

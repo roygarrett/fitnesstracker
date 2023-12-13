@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @exercise %>
+<div class="card">
+  <%= render @exercise %>
+</div>
 
 <div>
-  <%= link_to "Edit this exercise", edit_workout_type_exercise_path(@workout_type, @exercise) %> |
-  <%= link_to "Back to exercises", workout_type_exercises_path(@workout_type) %>
-
-  <%= button_to "Destroy this exercise", workout_type_exercise_path(@workout_type, @exercise), method: :delete %>
+  <%= link_to "Edit", edit_workout_type_exercise_path(@workout_type, @exercise) %> |
+  <%= link_to "Back", workout_type_exercises_path(@workout_type) %>
+</div>
+<br>
+<div>
+  <%= button_to "Delete", workout_type_exercise_path(@workout_type, @exercise), method: :delete, class: "btn btn-danger" %>
 </div>

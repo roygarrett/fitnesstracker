@@ -1,17 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Meals</h1>
+<div><%= link_to "New Meal", new_meal_path, class: "btn btn-primary" %></div>
 
 <div id="meals">
   <% @meals.each do |meal| %>
     <div class="card">
       <%= render meal %>
       <p>
-      <%= link_to "Show this meal", meal %>
+      <%= link_to "Show Meal", meal, class: "btn btn-primary" %>
       </p>
     </div>
   <% end %>
 
 </div>
-
-<%= link_to "New meal", new_meal_path %>
