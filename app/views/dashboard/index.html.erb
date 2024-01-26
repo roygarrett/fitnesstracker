@@ -10,11 +10,13 @@
     <tbody>
       <% curr_date = Date.today + 1.day %>
       <% while curr_date != Date.today - 365.days %>
-        <% if Meal.where(:date => curr_date).count > 0 || Workout.where(:date => curr_date).count > 0 %>
+        <% meals_on_date = @meals.where(date: curr_date) %>
+        <% workouts_on_date = @workouts.where(date: curr_date) %>
+        <% if meals_on_date.present? || workouts_on_date.present? %>
           <tr>
             <td><%= link_to curr_date, day_path(curr_date.to_s) %></td>
-            <td><%= Meal.where(:date => curr_date).sum(:calories) %></td>
-            <td><%= Workout.where(:date => curr_date).sum(:minutes) %></td>
+            <td><%= meals_on_date.sum(:calories) %></td>
+            <td><%= workouts_on_date.sum(:minutes) %></td>
           </tr>
         <% end %>
         <% curr_date -= 1.day %>

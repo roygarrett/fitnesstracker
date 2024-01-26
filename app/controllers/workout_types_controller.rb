@@ -3,7 +3,7 @@ class WorkoutTypesController < ApplicationController
 
   # GET /workout_types or /workout_types.json
   def index
-    @workout_types = WorkoutType.all
+    @workout_types = current_user.workout_types.all
   end
 
   # GET /workout_types/1 or /workout_types/1.json
@@ -12,7 +12,7 @@ class WorkoutTypesController < ApplicationController
 
   # GET /workout_types/new
   def new
-    @workout_type = WorkoutType.new
+    @workout_type = current_user.workout_types.new
   end
 
   # GET /workout_types/1/edit
@@ -21,7 +21,7 @@ class WorkoutTypesController < ApplicationController
 
   # POST /workout_types or /workout_types.json
   def create
-    @workout_type = WorkoutType.new(workout_type_params)
+    @workout_type = current_user.workout_types.new(workout_type_params)
 
     respond_to do |format|
       if @workout_type.save
@@ -60,7 +60,7 @@ class WorkoutTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_workout_type
-      @workout_type = WorkoutType.find(params[:id])
+      @workout_type = current_user.workout_types.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

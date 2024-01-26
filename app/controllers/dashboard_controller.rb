@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @workouts = Workout.all
-    @meals = Meal.all
+    @workouts = current_user.workouts
+    @meals = current_user.meals
   end
 end

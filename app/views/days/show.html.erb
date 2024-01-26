@@ -8,7 +8,7 @@
         <th scope="col">Calories</th>
       </thead>
       <tbody>
-        <% Meal.where(:date => @day).each do |m| %>
+        <% current_user.meals.where(:date => @day).each do |m| %>
           <tr>
             <td><%= link_to m.name, meal_path(m) %></td>
             <td><%= m.calories %></td>
@@ -27,7 +27,7 @@
       <th scope="col">Minutes</th>
     </thead>
     <tbody>
-      <% Workout.where(:date => @day).each do |w| %>
+      <% current_user.workouts.where(:date => @day).each do |w| %>
         <tr>
           <td><%= link_to w.workout_type.name, workout_path(w) %></td>
           <td><%= w.minutes %></td>
